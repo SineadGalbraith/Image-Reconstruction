@@ -1,0 +1,98 @@
+# Imports
+import cv2
+import numpy as np
+from numpy import linalg as la
+
+k = 100
+
+image = cv2.imread('./Images/S.jpg')
+# image = cv2.resize(image,None, fx=0.4, fy=0.4)
+# greyImage = image
+
+height = int(image.shape[0])
+width = int(image.shape[1])
+
+reconstructedImage = np.copy(image)
+
+patchPixelSize = 16
+patchAmount = int(height / 16)
+j = patchPixelSize
+lastJ = 0
+columns = []
+columnMeans = []
+adjustedDataPatches = []
+columnMeans = []
+
+
+def getColumnMean(column):
+    mean = np.mean(column, axis=0)
+    column = column - mean
+    columnMeans.append(mean)
+    return column
+
+def addMean(patch, patchNum) :
+    patch = patch + columnMeans[patchNum]
+    return patch
+
+def restructureData(columns):
+    reshapedArray = []
+    for i in range(columns.shape[1]):
+        reshaped = columns[:, i].reshape((16, 16, 3))
+        reshapedArray.append(reshaped)
+    return reshapedArray
+
+
+for row in range(0, width):
+    i = patchPixelSize
+    lastI = 0
+    if (j <= height):
+        for col in range(0, height):
+            if (i <= width):
+                currentPatch = image[lastJ:j, lastI:i]
+                patchColumn = currentPatch.reshape(768, 1)
+                patchColumn = getColumnMean(patchColumn)
+                if (len(columns) == 0):
+                    columns = patchColumn
+                else:
+                    columns = np.concatenate((columns, patchColumn), axis=1)
+                lastI = i
+                i = i + patchPixelSize
+        lastJ = j
+        j = j + patchPixelSize
+
+covMatrix = np.cov(columns)
+eVals, eVecs = la.eig(covMatrix)
+
+reducedVecs = eVecs[0:len(eVecs), 0:k]
+uncompressed = np.copy(columns)
+patchCounter = 0
+for vec in range(0, columns.shape[1]):
+    currentPatch = columns[:,vec]
+    compressed = np.matmul(np.matrix.transpose(reducedVecs), currentPatch.T)
+    uncompressedPatch = np.matmul(reducedVecs, compressed)
+    destandardisedPatch = addMean(uncompressedPatch, patchCounter)
+    uncompressed[:, vec] = destandardisedPatch
+    patchCounter = patchCounter + 1
+restructuredArray = restructureData(uncompressed)
+
+j = patchPixelSize
+lastJ = 0
+counter = 0
+for rows in range(0, height):
+    i = patchPixelSize
+    lastI = 0
+    if (j <= height):
+        for col in range(0, width):
+            if (i <= width):
+                patch = restructuredArray[counter]
+                reconstructedImage[lastJ:j, lastI:i] = patch
+                counter = counter + 1
+                lastI = i
+                i = i + patchPixelSize
+        lastJ = j
+        j = j + patchPixelSize
+
+name = 'R' + str(k)
+cv2.imwrite("./Images/" + name + ".jpg", reconstructedImage)
+cv2.imshow("RECONSTRUCTED IMAGE", reconstructedImage)
+cv2.waitKey(0)
