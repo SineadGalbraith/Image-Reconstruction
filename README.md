@@ -2,6 +2,21 @@
 
 ### Setup
 
+The code for this assignment was written in Python through PyCharm. Opencv2 and Numpy need to be installed and imported in order for both pieces of code to run (these packages need to be added on PyCharm too (if applicable)). All Images corresponding to this assignment can be found in the Images folder. The images are read from and written into this folder in the code also. 
+
+The Images folder includes the following images:
+  * Question A
+    * Part 1
+      * 'S.jpg' is the original Scenery Image
+      * 'R10.jpg' is the reconstructed image when k=10
+      * 'R100.jpg' is the reconstructed image when k=100
+    * Part 2
+  
+  * Question B
+    * 'Left.jpg' is the first of the two images used for Image Stitching
+    * 'Right.jpg' is the second of the two images used for Image Stitching
+    * 'Panorama.jpg' is the resultant panoramic view image of the Image Stitching process.
+
 ## Question A
 
 ### Part 1
