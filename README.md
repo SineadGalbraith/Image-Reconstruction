@@ -1,4 +1,4 @@
-# CS7GV1ComputerVision
+# Sinéad Galbraith CS7GV1-Computer Vision Mid Term Assignment
 
 ### Setup
 
