@@ -142,5 +142,5 @@ for rows in range(0, height):
 # assignment and this image will be saved to the /Images folder/ The image is then shown on screen.
 name = 'R' + str(k)
 cv2.imwrite("./Images/" + name + ".jpg", reconstructedImage)
-cv2.imshow("RECONSTRUCTED IMAGE", reconstructedImage)
+cv2.imshow("Reconstructed Image", reconstructedImage)
 cv2.waitKey(0)
