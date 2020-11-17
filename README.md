@@ -1,8 +1,8 @@
 # CS7GV1ComputerVision
 
-## Question A
-
 ### Setup
+
+## Question A
 
 ### Part 1
 
@@ -13,8 +13,6 @@
 ### Part 4
 
 ## Question B
-
-### Setup
 
 ### Panoramic View Image
 
