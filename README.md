@@ -83,6 +83,10 @@ The code for this part of Question A can be found in PCA.py also. As seen from P
   
 The resulting image 'R732.jpg' can be found in the Images folder and also seen below:
   
+<p align="center">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/R732.jpg" width="670" height="446">
+</p>
+
 
 ### Part 4
 
