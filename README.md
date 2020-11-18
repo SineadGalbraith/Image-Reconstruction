@@ -7,14 +7,16 @@ The code for this assignment was written in Python through PyCharm. Opencv2 and 
 The Images folder includes the following images:
   * Question A
     * Part 1
-      * 'S.jpg' is the original Scenery Image
-      * 'R10.jpg' is the reconstructed image when k=10
-      * 'R100.jpg' is the reconstructed image when k=100
+      * 'S.jpg' is the original Scenery Image.
+      * 'R10.jpg' is the reconstructed image when k=10.
+      * 'R100.jpg' is the reconstructed image when k=100.
     * Part 2
+      * 'PC{0-10}.jpg' are the first 10 principal components.
+      * 'PC{0-10}Rescaled.jpg' are the first 10 principal components scaled up.
   
   * Question B
-    * 'Left.jpg' is the first of the two images used for Image Stitching
-    * 'Right.jpg' is the second of the two images used for Image Stitching
+    * 'Left.jpg' is the first of the two images used for Image Stitching.
+    * 'Right.jpg' is the second of the two images used for Image Stitching.
     * 'Panorama.jpg' is the resultant panoramic view image of the Image Stitching process.
 
 ## Question A
