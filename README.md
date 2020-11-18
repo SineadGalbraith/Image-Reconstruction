@@ -12,7 +12,8 @@ The Images folder includes the following images:
       * 'R100.jpg' is the reconstructed image when k=100.
     * Part 2
       * 'PC{0-10}.jpg' are the first 10 principal components.
-      * 'PC{0-10}Rescaled.jpg' are the first 10 principal components scaled up.
+    * Part 3
+      * 'R732.jpg' is the reconstructed image for the new better value of k (k=732).
   
   * Question B
     * 'Left.jpg' is the first of the two images used for Image Stitching.
