@@ -51,6 +51,18 @@ The output reconstructed images for K=10 and K=100 can be see below also:
 
 All three of these images can be found in the Images folder.
 
+To compute the PCA of this image at the various k values, I followed the following process:
+
+Initially, the image is read in and split into 16x16 patches with all three channels. Then, for simplicity, the patch is transformed from 16x16x3 to a vector of 768x1. This vector is then adjusted by its mean. To do this, the mean is found for all 3 channels and subtracted from the original data. The mean-adjusted vector is then added to an array of vectors. This process is repeated for every patch within the image; the resulting array contains all of the patches in vector form.
+
+Once this array of vectors has been created and all of the patches have been added to it, the covariance matrix is found. To do this, I use the NumPy function cov(). The resultant covariant matrix is then used to find all of the Eigen Vectors and Values. From here, depending on the value of k, the number of Eigen Vectors found in the previous step is reduced to match the value of k. 
+
+Once the reduced vectors have been found, the vector array column containing all of the patch data as well as the reduced vectors is passed to a function called getUncompressedData. This function aims to find the data needed to reconstruct the image. Within this function, every patch is taken and compressed. This is done by multiplying the transpose of the patch and the transpose of the reduced vectors. Immediately after this step, the data is uncompressed. To do this, the compressed data is multiplied by the reduced vectors. Seeing as the mean was subtracted from the data earlier on, the data now needs to be readjusted by adding the mean back on. This process is completed by calling a function addMean which adds each respective patch mean onto the uncompressed data. 
+
+Once the uncompressed data has been found, it needs to be restructured. Currently the data is in the form 768x1, however it needs to be put back into the original patch form of 16x16x3. This is done through a function called restructureData. 
+
+Finally, the patches are simply reconstructed into the new resultant image. In the same way that the image was deconstructed above, it is reconstructed here. Once the reconstructed image is complete, it is saved to the Images folder.
+
 ### Part 2
 
 The code for this part of Question A can also be found in PCA.py. The function used to find the first ten principal components is commented fully.
