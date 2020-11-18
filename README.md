@@ -24,7 +24,7 @@ The Images folder includes the following images:
 
 ### Part 1
 
-The code for this part of Question A can be found in PCA.py. This code has been fully commented explaining the process of PCA (Please not also that the code may take a couple of minutes to run).
+The code for this part of Question A can be found in PCA.py. This code has been fully commented explaining the process of PCA (Please note also that the code may take a couple of minutes to run).
 
 ***Note that within the code, to change the value of k, the variable 'k' (found on line 7 of the PCA.py file) must be changed.***
 
@@ -77,7 +77,7 @@ The resulting first 10 principal components for the entire set of Eigen Vectors 
 The code for this part of Question A can be found in PCA.py also. As seen from Part 1, it is clear that the larger the amount of Eigen Vectors used, the more accurate the reconstructed image will be. In order to optimise the value of k, I believe that keeping k as close to the maximum amount of Eigen Vectors will allow the reconstructed image to be as close to the original as possible. For this reason, I decided to base my approach to this problem as follows:
  
   * Given that the patches are 16x16 pixels with 3 channels, when transformed from a patch to a single vector, this vector will consist of one column with 768 rows (relating to all of the patches). As a result of this, 768 will be the maximum amount of Eigen Vectors for any one patch. 
-  * If the Eigen Values were to be plotted, the graph would begin at the maximum value and slowly decrease until the value is nearly zero. For this reason, we want to include as many of the high Eigen Values as possible. 
+  * If the Eigen Values were to be plotted, the graph would begin (at the index 0) at the maximum value and slowly decrease until the value is nearly zero (index N). For this reason, I want to include as many of the high Eigen Values as possible. 
   * Due to this, I have decided to set a threshold value for the minimum Eigen Value. By setting a threshold (in this case, I have set the minimum threshold as 1), all Eigen Values below this threshold will not be considered as part of k. 
   * A counter is used to keep track of the amount of Eigen Values below the threshold. Once this number has been obtained, it is subtracted from the maximum (768) to leave the new value of k (in this case the new value of k is 732).
   
@@ -89,6 +89,8 @@ The resulting image 'R732.jpg' can be found in the Images folder and also seen b
 
 
 ### Part 4
+
+As seen from Parts 1 and 3 of Question A, the higher the value of k, the better quality and consistency of the reconstructed image. When k=10, the image 
 
 ## Question B
 
