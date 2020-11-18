@@ -52,6 +52,26 @@ def restructureData(columns):
     return reshapedArray
 
 
+# This function is for Part 2 of Question A. Using the function argpartition(), the indices of the maximum 10 Eigen
+# Values are returned into the topVals array. The indices of the Eigen Values are associated with their
+# corresponding Eigen Vectors (i.e. the corresponding Eigen Vector and Eigen Value will have the same index in their
+# respective arrays). The Eigen Vector and Eigen Value at each of the 10 maximum indices are then multiplied. From here
+# the resultant column is restructured into the original RGB format (16x16x3). I have commented out the line of code
+# needed for resizing the images (they are 16x16 patches and so without scaling the images up, it will not be possible
+# to see them clearly). I will save two versions of these images, one at the original scale and one scaled up by 20.
+# The image is then displayed and saved in the Images folder as 'PC' with the respective index (0-9).
+def findFirstTenPrincipleComponents(vals, vecs):
+    topVals = np.argpartition(vals, -10)[-10:]
+    for index in range(0, len(topVals)):
+        vecVal = vecs[:,index] * vals[index]
+        pc = vecVal.reshape(16, 16, 3)
+        cv2.imwrite("./Images/PC" + str(index) + ".jpg", pc)
+        # cv2.imshow("PC" + str(index), pc)
+        # cv2.waitKey(0)
+        rpc = cv2.resize(pc, None, fx=20, fy=20)
+        cv2.imwrite("./Images/PC" + str(index) + "Rescaled.jpg", rpc)
+
+
 # In this section of the code, the original image data is divided into patches. Every row and column is looped
 # through and each 16x16 patch is extracted. This patch is then reshaped into a (768x1) column. The 'getColumnMean'
 # function is then called. Within this function, the means of the individual channels within the column are found
@@ -87,6 +107,9 @@ covMatrix = np.cov(columns)
 # covariance matrix. This has been done through a function in the numpy library (called linalg) called eig(). This is
 # the third step of the PCA process.
 eVals, eVecs = la.eig(covMatrix)
+
+# This code is for Question A Part 2, finding the first ten principal components.
+findFirstTenPrincipleComponents(eVals, eVecs)
 
 # Once all of the Eigen Values and Eigen Vectors have been found for the covariance matrix, the next step involves
 # narrowing down the amount of Eigen Vectors used. We want k (the value that we specified at the beginning of the code)
