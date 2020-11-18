@@ -52,13 +52,17 @@ All three of these images can be found in the Images folder.
 
 ### Part 2
 
+The code for this part of Question A can also be found in PCA.py. The function used to find the first ten principal components is commented fully.
+
+The resulting first 10 principal components for the entire set of Eigen Vectors and Values (in RGB form) can be seen below:
+
 <p align="center">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC0.jpg" width="120" height="120">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC1.jpg" width="120" height="120">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC2.jpg" width="120" height="120">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC3.jpg" width="120" height="120">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC4.jpg" width="120" height="120">
- </p>
+</p>
 <p align="center">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC5.jpg" width="120" height="120">
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC6.jpg" width="120" height="120">
