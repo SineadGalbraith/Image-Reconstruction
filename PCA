@@ -56,20 +56,16 @@ def restructureData(columns):
 # Values are returned into the topVals array. The indices of the Eigen Values are associated with their
 # corresponding Eigen Vectors (i.e. the corresponding Eigen Vector and Eigen Value will have the same index in their
 # respective arrays). The Eigen Vector and Eigen Value at each of the 10 maximum indices are then multiplied. From here
-# the resultant column is restructured into the original RGB format (16x16x3). I have commented out the line of code
-# needed for resizing the images (they are 16x16 patches and so without scaling the images up, it will not be possible
-# to see them clearly). I will save two versions of these images, one at the original scale and one scaled up by 20.
-# The image is then displayed and saved in the Images folder as 'PC' with the respective index (0-9).
+# the resultant column is restructured into the original RGB format (16x16x3). The image is then displayed and saved in
+# the Images folder as 'PC' with the respective index (0-9).
 def findFirstTenPrincipleComponents(vals, vecs):
     topVals = np.argpartition(vals, -10)[-10:]
     for index in range(0, len(topVals)):
         vecVal = vecs[:,index] * vals[index]
         pc = vecVal.reshape(16, 16, 3)
         cv2.imwrite("./Images/PC" + str(index) + ".jpg", pc)
-        # cv2.imshow("PC" + str(index), pc)
+        cv2.imshow("PC" + str(index), pc)
         # cv2.waitKey(0)
-        rpc = cv2.resize(pc, None, fx=20, fy=20)
-        cv2.imwrite("./Images/PC" + str(index) + "Rescaled.jpg", rpc)
 
 
 # In this section of the code, the original image data is divided into patches. Every row and column is looped
