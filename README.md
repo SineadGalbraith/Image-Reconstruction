@@ -73,6 +73,16 @@ The resulting first 10 principal components for the entire set of Eigen Vectors 
 
 ### Part 3
 
+The code for this part of Question A can be found in PCA.py also. As seen from Part 1, it is clear that the larger the amount of Eigen Vectors used, the more accurate the reconstructed image will be. In order to optimise the value of k, I believe that keeping k as close to the maximum amount of Eigen Vectors will allow the reconstructed image to be as close to the original as possible. For this reason, I decided to base my approach to this problem as follows:
+ 
+  * Given that the patches are 16x16 pixels with 3 channels, when transformed from a patch to a single vector, this vector will consist of one column with 768 rows (relating to all of the patches). As a result of this, 768 will be the maximum amount of Eigen Vectors for any one patch. 
+  * If the Eigen Values were to be plotted, the graph would begin at the maximum value and slowly decrease until the value is nearly zero. For this reason, we want to include as many of the high Eigen Values as possible. 
+  * Due to this, I have decided to set a threshold value for the minimum Eigen Value. By setting a threshold (in this case, I have set the minimum threshold as 1), all Eigen Values below this threshold will not be considered as part of k. 
+  * A counter is used to keep track of the amount of Eigen Values below the threshold. Once this number has been obtained, it is subtracted from the maximum (768) to leave the new value of k (in this case the new value of k is 732).
+  
+The resulting image 'R732.jpg' can be found in the Images folder and also seen below:
+  
+
 ### Part 4
 
 ## Question B
