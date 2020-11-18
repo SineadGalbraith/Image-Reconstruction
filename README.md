@@ -49,7 +49,23 @@ The output reconstructed images for K=10 and K=100 can be see below also:
 </p>
 
 All three of these images can be found in the Images folder.
+
 ### Part 2
+
+<p align="center">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC0.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC1.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC2.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC3.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC4.jpg" width="120" height="120">
+ </p>
+<p align="center">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC5.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC6.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC7.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC8.jpg" width="120" height="120">
+  <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC9.jpg" width="120" height="120">
+ </p>
 
 ### Part 3
 
