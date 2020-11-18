@@ -90,7 +90,15 @@ The resulting image 'R732.jpg' can be found in the Images folder and also seen b
 
 ### Part 4
 
-As seen from Parts 1 and 3 of Question A, the higher the value of k, the better quality and consistency of the reconstructed image. When k=10, the image 
+As seen from Parts 1 and 3 of Question A, the higher the value of k, the better quality and consistency of the reconstructed image. 
+
+When k=10, the patches within the image are very noticeable. The overall image structure is not too bad however, it is still possible to see most of the image and to understand what the image is showing. The colour remains the same but the presence of random red or blue pixels is seen widely across the image. If you look closely at the image also, it looks slightly blurred due to the patch lines being very obvious to the eye.
+
+When k=100, the patches within the images are significantly less noticeable. The image looks smoother overall with the scene being very clear and obvious. However, interestingly, the colour in this image is slightly different to the original, the image appears to be lighter. There are arguably more 'random' value pixels visible in this image also by comparison to the image where k=10. Overall this image is a lot smoother and less blurred but also not particularly accurate given the colour difference.
+
+Finally, when k=732, the image is very close to the original. This is to be expected however as the maximum number of Eigen Values/Vectors is 768 and so there isn't a big difference with this k value and the maximum k value. The colouring of the image is very similar to the original, with no significant differences. It is also rather difficult to spot any anomalies within the pixels (i.e. any 'random' pixel values as seen in the two previous images).
+
+It is very clear from comparing these three images that the higher the amount of Eigen Vectors used, the better quality the image will be. For the lower values of k, the image appears patchy and almost blurred, however this is reduced almost entirely for the higher values of k.
 
 ## Question B
 
