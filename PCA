@@ -13,8 +13,8 @@ image = cv2.imread('./Images/S.jpg')
 height = int(image.shape[0])
 width = int(image.shape[1])
 
-# Make a copy of the original image. This will be used to place the reconstructed patches back into
-# later in the program.
+# Make a copy of the original image. This will be used to place the reconstructed patches back into later in
+# the program.
 reconstructedImage = np.copy(image)
 
 # Variables initialised for use later in the program.
@@ -51,7 +51,6 @@ def restructureData(columns, k):
     for i in range(columns.shape[1]):
         reshaped = columns[:, i].reshape((16, 16, 3))
         reshapedArray.append(reshaped)
-
     reconstructAndSaveImage(reshapedArray, k)
 
 
@@ -71,7 +70,7 @@ def findFirstTenPrincipleComponents(vals, vecs):
         # cv2.waitKey(0)
 
 
-# In this function, the idea is to take each patch from the 'columns' array, compressed the data and then uncompress it.
+# In this function, the idea is to take each patch from the 'columns' array, compress the data and then uncompress it.
 # This process needs to be done patch by patch and so the first step is to extract the patch. To find the compressed
 # data, the transpose of this data needs to be multiplied with the transpose of the reduced vectors from above.
 # Once the compressed data has been found, we immediately need to uncompress it. To do this, we multiply the reduced
@@ -92,7 +91,6 @@ def getUncompressedData(columns, reducedVecs, k):
         destandardisedPatch = addMean(uncompressedPatch, patchCounter)
         uncompressed[:, vec] = destandardisedPatch
         patchCounter = patchCounter + 1
-
     restructureData(uncompressed, k)
 
 
@@ -173,9 +171,9 @@ for row in range(0, width):
 # matrix. This is the second step of the PCA process. The covariance matrix can be found using the Numpy function cov().
 covMatrix = np.cov(columns)
 
-# Now that the covariance matrix has been found, it is possible to find all the Eigen Values and Eigen Vectors for this
-# covariance matrix. This has been done through a function in the numpy library (called linalg) called eig(). This is
-# the third step of the PCA process.
+# Now that the covariance matrix has been found, it is possible to find all of the Eigen Values and Eigen Vectors for
+# this covariance matrix. This has been done through a function in the numpy library (called linalg) called eig(). This
+# is the third step of the PCA process.
 eVals, eVecs = la.eig(covMatrix)
 
 # This code is for Question A Part 2, finding the first ten principal components.
@@ -186,8 +184,8 @@ findFirstTenPrincipleComponents(eVals, eVecs)
 # Eigen Vectors. To do this, a new list is created containing all rows of the Eigen Vectors (eVecs), but only k columns.
 reducedVecs = eVecs[0:len(eVecs), 0:k]
 
-# Get the uncompressed Data
+# Get the uncompressed Data using the column vector array, the reduced vectors from about and k.
 getUncompressedData(columns, reducedVecs, k)
 
-# Find the new value of K (the better value). This is Question A Part 3 of the Assignment.
+# Find the new value of K (the better k value). This is Question A Part 3 of the Assignment.
 findOptimalKValue(columns, eVals, eVecs)
