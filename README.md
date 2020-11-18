@@ -84,6 +84,9 @@ The resulting first 10 principal components for the entire set of Eigen Vectors 
   <img src="https://github.com/SineadGalbraith/CS7GV1ComputerVision/blob/master/Images/PC9.jpg" width="120" height="120">
  </p>
 
+To find the first ten principal components, I used the following process:
+
+Firstly, I found the indices of the 10 maximum Eigen Values. Then, using these indices, I found the associated Eigen Vectors (the indices of the Eigen Values represent the corresponding Eigen Vectors). Once I had both the Eigen Value and Eigen Vector, I simply multiplied these values together to get the appropriate principal component. I then reshaped this new variable to be 16x16x3 (a 16x16 patch) and saved the patch as an image in the same way as all prior images have been saved.
 ### Part 3
 
 The code for this part of Question A can be found in PCA.py also. As seen from Part 1, it is clear that the larger the amount of Eigen Vectors used, the more accurate the reconstructed image will be. In order to optimise the value of k, I believe that keeping k as close to the maximum amount of Eigen Vectors will allow the reconstructed image to be as close to the original as possible. For this reason, I decided to base my approach to this problem as follows:
